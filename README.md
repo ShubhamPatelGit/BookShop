@@ -14,13 +14,13 @@ Reqirements:
 3. MySql 5 or above database with Username: root and Password: root
 
 How to run:
--> This is a Eclipse IDE project.
--> It can be cloned and imported directly into the Eclipse.
--> Add the server.
--> In MySql database, execute quries given bellow:
-    (a) create schema test;
-    (b) use test;
-    (c) create table books(
+1. This is a Eclipse IDE project.
+2. It can be cloned and imported directly into the Eclipse.
+3. Add the server.
+4. In MySql database, execute quries given bellow:
+    1. create schema test;
+    2. use test;
+    3. create table books(
         id int primary key,
           name varchar(50),
           author varchar(50),
@@ -28,5 +28,5 @@ How to run:
           quantity int,
           course text
         );
- -> Click on project and select 'Run as' then 'Run on Server', Select the added server and click Finish.
- -> After some processing, you will be redirected to the book upload page of the project.
+ 5. Click on project and select 'Run as' then 'Run on Server', Select the added server and click Finish.
+ 6. After some processing, you will be redirected to the book upload page of the project.
