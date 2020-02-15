@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import com.pojos.BookPojo;
 import com.sql.SQLConnection;
 
+
 public class BookDao {
 	
 	public int maxid() throws Exception{
@@ -121,12 +122,8 @@ public class BookDao {
 			con = SQLConnection.connect();
 			PreparedStatement ps = con.prepareStatement("select * from books where id=?");
 			ps.setInt(1, id);
-//			ps.setInt(2, quantity);
 			ResultSet rs = ps.executeQuery();
 			BookPojo book = new BookPojo();
-//			if(rs == null)
-//				book.setbId(0);
-//			else {
 			rs.next();
 			book.setbId(Integer.parseInt(rs.getString(1)));
 			book.setbName(rs.getString(2));
@@ -136,7 +133,7 @@ public class BookDao {
 			if(book.getbQuantity() < quantity)
 				book.setbId(0);
 			book.setbCourse(rs.getString(6));
-//			}
+
 			return book;
 			
 		} catch (Exception e) {
@@ -164,10 +161,61 @@ public class BookDao {
 		}
 	}
 	
-	public ArrayList <BookPojo> viewBooks() throws Exception{
+	public ArrayList<BookPojo> search(String type, String value) throws Exception{
+        Connection con = null;
+        try {	
+            con = SQLConnection.connect();
+            PreparedStatement ps = null;
+            ArrayList<BookPojo> books = new ArrayList<>();
+            if(type.equals("id")) {
+            	ps = con.prepareStatement("select * from books where id=?");
+                ps.setString(1, value);
+            }
+            else if(type.equals("title")) {
+            	ps = con.prepareStatement("select * from books where name=?");
+                ps.setString(1, value);
+            }
+            else if(type.equals("author")) {
+            	ps = con.prepareStatement("select * from books where author=?");
+                ps.setString(1, value);
+            }
+            else if(type.equals("price")) {
+            	ps = con.prepareStatement("select * from books where price=?");
+                ps.setString(1, value);
+            }
+            else if(type.equals("quantity")) {
+            	ps = con.prepareStatement("select * from books where quantity=?");
+                ps.setString(1, value);
+            }
+            else if(type.equals("courses")) {
+            	ps = con.prepareStatement("select * from books where course=?");
+                ps.setString(1, value);
+            }
+            ResultSet rs = ps.executeQuery();
+            while(rs.next()) {
+            	BookPojo book = new BookPojo();
+            	book.setbId(rs.getInt(1));
+            	book.setbName(rs.getString(2));
+            	book.setbAuthor(rs.getString(3));
+            	book.setbPrice(rs.getInt(4));
+            	book.setbQuantity(rs.getInt(5));
+            	book.setbCourse(rs.getString(6));
+            	books.add(book);
+            }
+            return books;      
+
+        } catch (Exception e) {
+                e.printStackTrace();
+                throw e;
+        } finally {
+                con.close();
+        }
+	}
+	
+	public ArrayList <BookPojo> allBooks() throws Exception{
 		Connection con = null;
 		try {
-			ArrayList <BookPojo> list = new ArrayList();
+			ArrayList <BookPojo> list = new ArrayList<>();
 			con = SQLConnection.connect();
 			PreparedStatement ps = con.prepareStatement("select * from books");
 			ResultSet rs = ps.executeQuery();

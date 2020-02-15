@@ -12,13 +12,12 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-<title>Insert title here</title>
+<title>Edit Book</title>
 </head>
 <body>
 	
 	<%
 		String msg = request.getParameter("msg");
-//		BookPojo book = (BookPojo)request.getAttribute("book");
 	%>
 	<%
 		if (msg != null) {
@@ -34,7 +33,7 @@
 	
 	<h1>Edit Book</h1>
 	
-	<nav class="navbar navbar-inverse">
+<nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
     </div>
@@ -44,7 +43,7 @@
       <li><a class="active" href="EditBook.jsp"> <span>Update &nbsp</span><span>Book</span></a></li>
       <li><a class="active" href="DeleteBook.jsp"> <span>Delete &nbsp</span><span>Book</span></a></li>
        <li><a class="active" href="PurchaseBook.jsp"> <span>Purchase &nbsp</span><span>Book</span></a></li>
-       <li><a class="active" href="ViewBooks.jsp"> <span>View &nbsp</span><span>Books</span></a></li>
+       <li><a class="active" href="SearchBooks.jsp"> <span>Search &nbsp</span><span>Books</span></a></li>
     </ul>
   </div>
 </nav>

@@ -11,7 +11,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-<title>Insert title here</title>
+<title>Delete Book</title>
 </head>
 <body>
 	
@@ -41,75 +41,31 @@
       <li><a class="active" href="UploadBook.jsp"> <span>Upload &nbsp</span><span>Book</span></a></li>
       <li><a class="active" href="EditBook.jsp"> <span>Update &nbsp</span><span>Book</span></a></li>
       <li><a class="active" href="DeleteBook.jsp"> <span>Delete &nbsp</span><span>Book</span></a></li>
-       <li><a class="active" href="PurchaseBook.jsp"> <span>Purchase &nbsp</span><span>Book</span></a></li>
-       <form action= "BookList"><li><a class="active" href="ViewBooks.jsp" type= "submit"> <span>View &nbsp</span><span>Books</span></a></li></form>
-       
+      <li><a class="active" href="PurchaseBook.jsp"> <span>Purchase &nbsp</span><span>Book</span></a></li>
+      <li><a class="active" href="SearchBooks.jsp"> <span>Search &nbsp</span><span>Book</span></a></li>
     </ul>
   </div>
 </nav>
 
 <div class="container">
-		<form action="Delete">
+	<form action="Delete">
 		<div class="form-group">
 			<input type="hidden" name='request' value='delete' /> 
 			<lebel>Book ID</lebel>
 			<input type="number" name="bId" class="form-control" />
 			
 			<button class= "button" type= "submit" value= "Submit">Submit</button>
-			</div>
-		</form>
-	</div>	
-	
-	<table>
-		<tr>
-			<div id="Id">
-				<th>Ids</th>
-				<c:forEach items="${id}" var="i">
-					<td>${i}</td>
-				</c:forEach>
-			</div>
-		</tr>
-		<tr>
-			<div id="names">
-				<th>Names</th>
-				<c:forEach items="${name}" var="n">
-					<td>${n}</td>
-				</c:forEach>
-			</div>
-		</tr>
-		<tr>
-			<div id="author">
-				<th>Authors</th>
-				<c:forEach items="${author}" var="a">
-					<td>${a}</td>
-				</c:forEach>
-			</div>
-		</tr>
-		<tr>
-			<div id="price">
-				<th>Price</th>
-				<c:forEach items="${price}" var="p">
-					<td>${p}</td>
-				</c:forEach>
-			</div>
-		</tr>
-		<tr>
-			<div id="quantity">
-				<th>Quantity</th>
-				<c:forEach items="${quantity}" var="q">
-					<td>${q}</td>
-				</c:forEach>
-			</div>
-		</tr>
-		<tr>
-			<div id="course">
-				<th>Courses</th>
-				<c:forEach items="${course}" var="c">
-					<td>${c}</td>
-				</c:forEach>
-			</div>
-		</tr>
-	</table>
+		</div>
+	</form>
+</div>	
 
+<br>
+	
+<div class="container">	
+	<form action="view">
+		<button class= "button" type= "submit" value= "Submit">All Books</button>
+	</form>
+</div>
+	
 </body>
 </html>

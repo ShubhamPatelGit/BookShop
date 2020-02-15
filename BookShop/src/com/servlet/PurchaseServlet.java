@@ -38,7 +38,7 @@ public class PurchaseServlet extends HttpServlet {
 				session.setAttribute("name", book.getbName());
 				session.setAttribute("author", book.getbAuthor());
 				session.setAttribute("price", book.getbPrice());
-				session.setAttribute("quantity", book.getbQuantity());
+				session.setAttribute("quantity", book.getbQuantity()- quantity);
 				session.setAttribute("course", book.getbCourse());
 				response.sendRedirect("Purchased.jsp?msg=purchase successful ");
 			}
