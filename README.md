@@ -2,11 +2,11 @@
 
 This project simulate a book shop; where you can add, view, update, delete and purchase the books.
 The technologies used are:
-Java
-Servlet
-JSP
-Html
-Bootstrap
+1. Java
+2. Servlet
+3. JSP
+4. Html
+5. Bootstrap
 
 Reqirements:
 1. JDK 8 or above.
